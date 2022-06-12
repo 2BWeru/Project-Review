@@ -1,0 +1,71 @@
+<head>
+    <link rel="stylesheet" href="/static/css/bulma.min.css">
+</head>
+
+<div class="box">
+</div>
+
+<br>
+<br>   
+
+
+<div class="columns" >
+    <div class="column "></div>
+    <div class="column">
+          <!-- form -->
+        <div class="card">
+          <div class="card-body">
+            <div style="margin:10px">
+              <p>Upload Project</p>
+              <br>
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="hidden" name="project_id" value="">
+                <div class="mb-3">
+                    <label for="" class="form-label">Title</label>
+                    <input class="input" Required name="title" type="text" placeholder="Title">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Website link</label>
+                    <input class="input" Required name="link" type="url" placeholder="Website link">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Description</label>
+                    <textarea class="textarea is-success" Required name="description" placeholder="Add Post Caption ..."></textarea>   
+                </div>
+  
+                 <div class="mb-3">
+                    <label for="" class="form-label">Landing_page Image</label>
+
+                    <!-- file -->
+                    <div class="file has-name is-boxed">
+                        <label class="file-label">
+                          <input class="file-input" type="file" Required name="landing_page">
+                          <span class="file-cta">
+                            <span class="file-icon">
+                              <i class="fas fa-upload"></i>
+                            </span>
+                            <span class="file-label">
+                              Choose a file…
+                            </span>
+                          </span>
+                          <span class="file-name">
+                            
+                          </span>
+                        </label>
+                      </div>
+                    <!-- file -->
+                </div>
+                <button type="submit" class="button is-danger">Upload</button>
+            </form>
+            </div> 
+        </div>
+        </div>
+        <!-- form -->
+    </div>
+    <div class="column"></div>
+</div>
+                
+
+
+

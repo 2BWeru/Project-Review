@@ -1,0 +1,71 @@
+{% load bootstrap3 %}
+<head>
+    <link rel="stylesheet" href="/static/css/bulma.min.css">
+</head>
+
+<div class="box">
+</div>
+
+<br>
+<br>
+
+<div class="columns">
+    <div class="column "></div>
+    <div class="column">
+          <!-- form -->
+        <div class="card">
+         <div class="card-body">
+           <div style="margin:10px">
+              <p>Create Profile</p>
+              <br>
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="" class="form-label">Full name</label>
+                    <input class="input" Required name="fullname" type="text" placeholder="Name">
+                </div>
+                <div class="mb-3">
+                  <label for="" class="form-label">Phone number</label>
+                  <input class="input" Required name="contacts" type="text" placeholder="Phone number">
+              </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Bio</label>
+                    <textarea class="textarea is-success" Required name="bio" placeholder="Add bio ..."></textarea>
+                </div>
+  
+                 <div class="mb-3">
+                    <label for="" class="form-label">Avatar Image</label>
+
+                    <!-- file -->
+                    <div class="file has-name is-boxed">
+                        <label class="file-label">
+                          <input class="file-input" type="file" Required name="avatar">
+                          <span class="file-cta">
+                            <span class="file-icon">
+                              <i class="fas fa-upload"></i>
+                            </span>
+                            <span class="file-label">
+                              Choose a file…
+                            </span>
+                          </span>
+                          <span class="file-name">
+                            
+                          </span>
+                        </label>
+                      </div>
+                    <!-- file -->
+                </div>
+                <button type="submit" class="button is-danger">Post</button>
+            </form>
+            </div>
+          </div>
+        
+        </div>
+        <!-- form -->
+    </div>
+    <div class="column"></div>
+</div>
+
+
+
+

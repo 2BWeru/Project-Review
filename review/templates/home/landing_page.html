@@ -1,0 +1,175 @@
+{% load bootstrap3 %}
+{% load static %}
+
+{% block styles %}
+{% bootstrap_css %}
+<link rel="stylesheet" href="/static/css/bulma.min.css">
+<link rel="stylesheet" href="{% static 'css/landing_page.css' %}">
+<link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+{% endblock %}
+
+
+<!-- navbar -->
+<nav class="navbar is-transparent">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bulma.io">
+        <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+      </a>
+      <div class="navbar-burger" data-target="navbarExampleTransparentExample">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  
+    <div id="navbarExampleTransparentExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="{% url 'index' %}">
+          Home
+        </a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="{% url 'profile'%}">
+            Profile
+          </a>
+          <div class="navbar-dropdown is-boxed">
+            <a class="navbar-item" href="{% url 'project' %}">
+              Upload project
+            </a>
+            <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
+              Modifiers
+            </a>
+            <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
+              Columns
+            </a>
+            <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
+              Layout
+            </a>
+            <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
+              Form
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
+              Elements
+            </a>
+            <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
+              Components
+            </a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <p class="control">
+              <!-- search -->
+            <a class="navbar-item" >
+                <div class="input-group rounded">
+                    <form role="search" action="{% url 'search' %}">
+                        {% csrf_token %}
+                    <input type="search" class="form-control rounded" placeholder="Search Project" name="projects"  aria-label="Search" aria-describedby="search-addon" />
+                    <span class="input-group-text border-0" id="search-addon">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search">Search</i></button>
+                          </div>
+                    </span>
+                    </form>
+                  </div>
+                </a>
+                <!-- search -->
+            </p>
+            <p class="control">
+              <a class="button is-primary" href="https://github.com/jgthms/bulma/releases/download/0.9.4/bulma-0.9.4.zip">
+                <span class="icon">
+                  <i class="fas fa-download"></i>
+                </span>
+                <span>Download</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+<!-- navbar -->
+
+
+<!-- header -->
+<!-- header -->
+
+<!-- main content -->
+    <section class="light">
+        <div class="container py-2">
+            <div class="h1 text-center text-dark" id="pageHeaderTitle">My Cards Light</div>
+             {% for project in projects %}
+            <article class="postcard light blue">
+                <a class="postcard__img_link" href="{% url 'details' project.id %}">
+                    <img class="postcard__img" src="{{project.landing_page.url}}" alt="Image Title" />
+                
+                <div class="postcard__text t-dark">
+                    <h1 class="postcard__title blue">{{project.title}}</h1>
+                    <div class="postcard__subtitle small">
+                        <time datetime="2020-05-25 12:00:00">
+                            <i class="fas fa-calendar-alt mr-2">{{project.created|date }}</i>
+                        </time>
+                    </div>
+                    <div class="postcard__bar"></div>
+                    <div class="postcard__preview-txt">{{project.description}}</div>
+                </a>
+                    <ul class="postcard__tagbox">
+                    <a class="postcard__img_link" href="{% url 'details' project.id %}">
+                        <li class="tag__item"><i class="fas fa-tag mr-2"></i>Rate</li>
+                        <li class="tag__item"><i class="fas fa-clock mr-2"></i>Review</li>
+                        <li class="tag__item play blue"><i class="fas fa-play mr-2"></i>
+                      </a>
+                        </li>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </article>
+           
+            
+            <!--  -->
+            <div class="tile is-ancestor">
+              <div class="tile is-vertical is-8">
+                <div class="tile">
+                  <div class="tile is-parent is-vertical">
+                    <article class="tile is-child notification is-primary">
+                      <p class="title">Vertical...</p>
+                      <p class="subtitle">Top tile</p>
+                    </article>
+                  
+                  </div>
+                  <div class="tile is-parent">
+                    <article class="tile is-child notification is-info">
+                      <p class="title">Middle tile</p>
+                      <p class="subtitle">With an image</p>
+                      <figure>
+                        <img src="{{project.landing_page.url}}"  alt="Image Title">
+                      </figure>
+                    </article>
+                  </div>
+                </div>
+              
+              </div>
+              <div class="tile is-parent">
+                <article class="tile is-child notification is-success">
+                  <div class="content">
+                    <p class="title">Tall tile</p>
+                    <p class="subtitle">With even more content</p>
+                    <div class="content">
+                      <!-- Content -->
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <img src="{{project.landing_page.url}}" alt="Image Title">
+            <!--  -->
+            {% endfor %}
+        </div>
+    </section>
+
+<!-- main content -->

@@ -1,0 +1,80 @@
+{% load bootstrap3 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/profile.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+</head>
+<body>
+    {% if profiles %}
+    {% for p in profiles %}
+    <div class="padding">
+        <div class="col-md-8">
+            <!-- Column -->
+            <div class="card"> <img class="card-img-top" src="/static/images/photo-1652876343973-bef0c8c1b014.avif" alt="Card image cap">
+                <div class="card-body little-profile text-center">
+                    <div class="pro-img">
+                        <img src="{{p.avatar.url}}" alt="user">
+                    </div>
+                    <h3 class="m-b-0">{{user.username}}</h3>
+                    <h3 class="m-b-0">{{p.fullname}}</h3>
+                    <p>{{user.email}}</p> 
+                    <p>{{p.contacts}}</p>
+                    <div>
+                        <mark>{{p.bio}}</mark>
+                    </div>
+                    <a href="javascript:void(0)" class="m-t-10 waves-effect waves-dark btn btn-primary btn-md btn-rounded" data-abc="true">Follow</a>
+                    <div class="row text-center m-t-20">
+                        <div class="col-lg-4 col-md-4 m-t-20">
+                            <h3 class="m-b-0 font-light">10434</h3><small>Articles</small>
+                        </div>
+                        <div class="col-lg-4 col-md-4 m-t-20">
+                            <h3 class="m-b-0 font-light">434K</h3><small>Followers</small>
+                        </div>
+                        <div class="col-lg-4 col-md-4 m-t-20">
+                            <h3 class="m-b-0 font-light">5454</h3><small>Following</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="padding">
+        <div class="col-md-8">
+            <!-- Column -->
+            <div class="card"> <img class="card-img-top" src="/static/images/photo-1652876343973-bef0c8c1b014.avif" alt="Card image cap">
+                <div class="card-body little-profile text-center">
+                    <div class="pro-img"><img src="/static/images/photo-1581869054729-d43f3ebe3b8d.avif" alt="user"></div>
+                    <h3 class="m-b-0">{{user.username}}</h3>
+                    <h3 class="m-b-0">fullname</h3>
+                    <p>phone number &amp; email</p> <a href="javascript:void(0)" class="m-t-10 waves-effect waves-dark btn btn-primary btn-md btn-rounded" data-abc="true">Follow</a>                    
+                    <div class="row text-center m-t-20">
+                        <div class="col-lg-4 col-md-4 m-t-20">
+                            <h3 class="m-b-0 font-light">10434</h3><small>Articles</small>
+                        </div>
+                        <div class="col-lg-4 col-md-4 m-t-20">
+                            <h3 class="m-b-0 font-light">434K</h3><small>Followers</small>
+                        </div>
+                        <div class="col-lg-4 col-md-4 m-t-20">
+                            <h3 class="m-b-0 font-light">5454</h3><small>Following</small>
+                        </div>
+                    </div>
+                    <br>
+                     <button class="btn btn-danger"><a href="{% url 'edit_profile' %}">Create Profile</a></button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
