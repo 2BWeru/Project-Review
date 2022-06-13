@@ -4,7 +4,7 @@
 }
  body {
 	 margin: 0;
-	 background: #1a1a1a url(https://picsum.photos/1920/1080?image=33) no-repeat center / cover;
+	 background: #1a1a1a url("/static/images/photo-1652876343973-bef0c8c1b014.avif") no-repeat center / cover;
 	 background-blend-mode: overlay;
 }
  .pen-title {
@@ -251,7 +251,7 @@
 	 transform: scaleY(0);
 }
  .menu__item:nth-child(1) .menu__item__bg-container {
-	 background-image: url(https://picsum.photos/800/600?image=11);
+	 background-image: url("/static/images/photo-1581869054729-d43f3ebe3b8d.avif");
 }
  .menu__item:nth-child(1) .menu__item__content {
 	 transition-delay: 0ms;
@@ -268,7 +268,7 @@
 	 transform: scaleX(0);
 }
  .menu__item:nth-child(2) .menu__item__bg-container {
-	 background-image: url(https://picsum.photos/800/600?image=22);
+	 background-image: url("/static/images/photo-1594916107106-4837e3ed0e6e.avif");
 }
  .menu__item:nth-child(2) .menu__item__content {
 	 transition-delay: 50ms;
@@ -285,7 +285,7 @@
 	 transform: scaleY(0);
 }
  .menu__item:nth-child(3) .menu__item__bg-container {
-	 background-image: url(https://picsum.photos/800/600?image=33);
+	 background-image: url("/static/images/photo-1635186373543-6339ad198d66.avif");
 }
  .menu__item:nth-child(3) .menu__item__content {
 	 transition-delay: 100ms;
@@ -302,7 +302,7 @@
 	 transform: scaleX(0);
 }
  .menu__item:nth-child(4) .menu__item__bg-container {
-	 background-image: url(https://picsum.photos/800/600?image=44);
+	 background-image: url("/static/images/photo-1581464647110-26e129ce2d02.avif");
 }
  .menu__item:nth-child(4) .menu__item__content {
 	 transition-delay: 150ms;
@@ -319,7 +319,7 @@
 	 transform: scaleY(0);
 }
  .menu__item:nth-child(5) .menu__item__bg-container {
-	 background-image: url(https://picsum.photos/800/600?image=55);
+	 background-image: url("");
 }
  .menu__item:nth-child(5) .menu__item__content {
 	 transition-delay: 200ms;
@@ -352,8 +352,8 @@
 <body>
     <button type="button" class="menu-button js-menu-trigger" aria-label="Click to open menu"></button>
     <div class="pen-title js-menu-trigger">
-      <h1>Website Review</h1>
-      <div class="info">Click here</div>
+      <h1>Project_Runway</h1>
+      <div class="info">Clicke me</div>
     </div>
     
     <div class="menu js-menu">
@@ -373,10 +373,11 @@
         <div class="menu__item__bg-container"></div>
         <div class="menu__item__content">
           <nav class="main-navigation">
-            <a class="main-navigation__link" href="#">Lorem, ipsum.</a>
-            <a class="main-navigation__link" href="#">Ipsum dolor.</a>
-            <a class="main-navigation__link" href="#">amet consectetur.</a>
-            <a class="main-navigation__link" href="#">voluptate provident</a>
+            <a class="main-navigation__link" href="#">Project_Runway</a>
+            <a class="main-navigation__link" href="#">Best Project</a>
+            <a class="main-navigation__link" href="#">rating Website!!</a>
+            <a class="main-navigation__link" href="#">definately worth your time and support</a>
+
           </nav>
         </div>
       </div>
@@ -389,7 +390,7 @@
       <div class="menu__item">
         <div class="menu__item__bg-container"></div>
         <div class="menu__item__content">
-          <a href="#" class="btn-link">More</a>
+          <a href="{% url 'project' %}" class="btn-link">Projects</a>
         </div>
       </div>
     </div>

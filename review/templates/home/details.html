@@ -4,98 +4,62 @@
 {% block styles %}
 {% bootstrap_css %}
 <link rel="stylesheet" href="/static/css/bulma.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="{% static 'css/landing_page.css' %}">
 <link rel="stylesheet" href="{% static 'css/details.css' %}">
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+
 
 {% endblock %}
 
 
 <!-- navbar -->
+<section class="ftco-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center mb-5">
+        <h2 class="heading-section" style="font-family: 'Satisfy', cursive;">Project_Runway</h2>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Project_Runway</a>
+        <div class="social-media order-lg-last">
+          <p class="mb-0 d-flex">
+            <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+            <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
+            <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+            <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
+          </p>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="fa fa-bars"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav ml-auto mr-md-3">
+            <li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Upload Project</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Profile</a></li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  <!-- END nav -->
+</div>
+
+</section>
 
 
 <!-- navbar -->
-<nav class="navbar is-transparent">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
-        <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
-      </a>
-      <div class="navbar-burger" data-target="navbarExampleTransparentExample">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  
-    <div id="navbarExampleTransparentExample" class="navbar-menu">
-      <div class="navbar-start">
-        <a class="navbar-item" href="{% url 'index' %}">
-          Home
-        </a>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="{% url 'profile'%}">
-            Profile
-          </a>
-          <div class="navbar-dropdown is-boxed">
-            <a class="navbar-item" href="{% url 'project' %}">
-              Upload project
-            </a>
-            <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
-              Modifiers
-            </a>
-            <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-              Columns
-            </a>
-            <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
-              Layout
-            </a>
-            <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
-              Form
-            </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
-              Elements
-            </a>
-            <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
-              Components
-            </a>
-          </div>
-        </div>
-      </div>
-  
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="field is-grouped">
-            <p class="control">
-              <!-- search -->
-            <a class="navbar-item" >
-                <div class="input-group rounded">
-                    <form role="search" action="{% url 'search' %}">
-                        {% csrf_token %}
-                    <input type="search" class="form-control rounded" placeholder="Search Project" name="projects"  aria-label="Search" aria-describedby="search-addon" />
-                    <button class="btn btn-default mt-3" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                     
-                    <span class="input-group-text border-0" id="search-addon">
-                        <div class="input-group-btn">
-                          </div>
-                    </span>
-                    </form>
-                  </div>
-                </a>
-                <!-- search -->
-            </p>
-            <p class="control">
-              <a class="button is-primary" href="{% url 'project'%}">
-                <span class="icon">
-                  <i class="fas fa-download"></i>
-                </span>
-                <span>Upload project</span>
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
+
 <!-- navbar -->
 <!-- navbar -->
 
@@ -109,8 +73,8 @@
           {% for proj in projects %}
           <div class="card">
             <div class="card-image">
-              <figure>
-                <img src="{{proj.landing_page.url}}" height="400px" width="200px" alt="Placeholder image">
+              <figure style="text-align: center;">
+                <img src="{{proj.landing_page.url}}" height="900" width="900" alt="Placeholder image">
               </figure>
             </div>
             <div class="card-content">
@@ -118,14 +82,15 @@
                 <div class="media-left">
                 </div>
                 <div class="media-content">
-                  <p class="title is-4">{{proj.title}}</p>
-                  <p class="subtitle is-6">@johnsmith</p>
+                  <p class="title is-3">{{proj.title}}</p>
+                  <p class="subtitle is-6">{{user.username}}</p>
                 </div>
               </div>
           
               <div class="content">
-               {{proj.description}}</a>.
-                <a href="#">#css</a> <a href="#">#responsive</a>
+                <strong>{{proj.description}}</strong>
+               </a>.
+                <!-- <a href="#">#css</a> <a href="#">#responsive</a> -->
                 <br>
                 <time datetime="2016-1-1">{{proj.created|date}}</time>
               </div>
@@ -143,17 +108,19 @@
           <!-- design -->
          <div class="box">
           <i>design</i><br>
-          <mark><span>{{rev.rate_by_design}}</span>/10<span> - by {{rev.user.username}}</span></mark>
+          <mark><span class="rate">{{rev.rate_by_design}}</span>/10<span> - by {{rev.user.username}}</span></mark>
           <br>
         <!-- content -->
           <i>usability</i><br>
-          <mark>{{rev.rate_by_usability}}/10<span> - by {{rev.user.username}}</span></mark>
+          <mark><span class="rate">{{rev.rate_by_usability}}</span>/10<span> - by {{rev.user.username}}</span></mark>
           <br>
         <!-- usability -->
           <i>content</i><br>
-          <mark>{{rev.rate_by_content}}/10<span> - by {{rev.user.username}}</span></mark>
+          <mark><span class="rate">{{rev.rate_by_content}}</span>/10<span> - by {{rev.user.username}}</span></mark>
+          <br>
+          <span>Average</span><p id="answer">0</p>
         </div>
-        <p>{{rev.rate|length}}</p>
+        
             {% endfor %}
         </div>
        
@@ -196,9 +163,44 @@
   </div>
       <!-- comments -->
       <article class="tile is-child notification is-warning">
+        <form method="Post" action="" role="form">
+          {% csrf_token %}
+          {{form.reviews}}
+        </form>
         <p class="title">...tiles</p>
         <p class="subtitle">Bottom tile</p>
       </article>
       <!-- comments -->
 
 <!-- main -->
+
+<!-- js -->
+<script>
+ 
+
+  // let answ =document.getElementById('#answer');
+
+ 
+    // let rates=document.querySelectorAll('.rate');
+    // let total=0;
+
+    var arr = document.querySelectorAll('span[class^="rate"]');
+    // var total = document.querySelector('span[id^="answer"]');
+    var total=0;
+
+    for(var i=0;i<arr.length;i++){
+        if(parseInt(arr[i].innerHTML))
+            total+= parseInt(arr[i].innerHTML);
+    }
+    console.log(total)
+    total.textContent
+    document.getElementById('answer').innerHTML = total;
+    // console.log()
+  
+  
+
+  console.log(2+2);
+  
+
+</script>
+<!-- js -->
