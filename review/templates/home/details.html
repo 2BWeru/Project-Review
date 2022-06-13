@@ -119,6 +119,7 @@
           <mark><span class="rate">{{rev.rate_by_content}}</span>/10<span> - by {{rev.user.username}}</span></mark>
           <br>
           <span>Average</span><p id="answer">0</p>
+          <small>{{rev.created}}</small>
         </div>
         
             {% endfor %}
@@ -149,7 +150,8 @@
         <br>
         <br>
             <div>
-                {{form.comment}}
+              <mark>Give a review</mark>
+                {{form.reviews}}
             </div>
          
             <button type="submit" name="action" class="waves-effect waves-light btn">Post</button>
@@ -162,14 +164,39 @@
   
   </div>
       <!-- comments -->
+  
       <article class="tile is-child notification is-warning">
-        <form method="Post" action="" role="form">
-          {% csrf_token %}
-          {{form.reviews}}
-        </form>
-        <p class="title">...tiles</p>
-        <p class="subtitle">Bottom tile</p>
+              
+      </form>
+      <p class="title">Reviews</p>
+      <p class="subtitle"></p>
+
+    
+    <article>
+      <div>
+        <article class="media">
+          <div class="media-content">
+            <div class="content">
+              {% for rev in review %}
+              <p>
+                <strong>{{user.username}}</strong>
+                <br>
+                <p>{{rev.reviews}}</p>
+                <br>
+                <small>{{rev.created}}</small>
+              </p>
+              {% endfor %}
+            </div>
+          </div>
+        </article>
+      </div>
+    </article>
+
       </article>
+
+    
+            
+      
       <!-- comments -->
 
 <!-- main -->
@@ -178,11 +205,6 @@
 <script>
  
 
-  // let answ =document.getElementById('#answer');
-
- 
-    // let rates=document.querySelectorAll('.rate');
-    // let total=0;
 
     var arr = document.querySelectorAll('span[class^="rate"]');
     // var total = document.querySelector('span[id^="answer"]');

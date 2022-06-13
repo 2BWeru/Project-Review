@@ -10,11 +10,28 @@
 <div class="tile is-parent">
     {% for project in projects %}
             <article class="postcard light blue">
-                <a class="postcard__img_link" href="{% url 'details' project.id %}">
-                    <img class="rounded" src="{{project.landing_page.url}}" alt="Image Title" height="200px" width="400px" />
+                <div class="box">
+                    <a class="postcard__img_link" href="{% url 'details' project.id %}"></a>
+                    <article class="media">
+                      <div class="media-left">
+                        <figure class="image is-128x128">
+                            <img class="is-rounded" src="{{project.landing_page.url}}">
+                          </figure>
+                      </div>
+                      <div class="media-content">
+                        <div class="content">
+                            <mark class="postcard__title blue"><a href="#">{{project.title}}</a></mark>
+                        </div>
+                       
+                      </div>
+                    </article>
+                </a>
+                  </div>
+                
+                    
                 
                 <div class="postcard__text t-dark">
-                    <h1 class="postcard__title blue"><a href="#">{{project.title}}</a></h1>
+                   
                     <div class="postcard__subtitle small"></div>
                 </div>
                     
