@@ -1,3 +1,4 @@
+from crypt import methods
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
@@ -10,6 +11,7 @@ class Profile(models.Model):
     bio=models.TextField(null=True,max_length=200)
     avatar = models.ImageField(default='default.jpg', upload_to='profile_images',null=True, blank=True)
     contacts = models.CharField(null=True,max_length=15)
+
     def save_profile(self):
         self.save()
     
@@ -26,8 +28,10 @@ class Projects(models.Model):
     link = models.URLField(null=True,max_length=200)
     created=models.DateTimeField(auto_now=True)
     profile=models.ForeignKey(Profile,on_delete=models.CASCADE,null=True, blank=True)
+    
+    # review = models.ManyToManyField(User,default=None, blank=True,related_name='comments')
 
-    def save_profile(self):
+    def save_project(self):
         self.save()
     
 
@@ -55,14 +59,21 @@ RATE_CHOICES=[
 
 class Review(models.Model):
     user= models.ForeignKey(User,on_delete=models.CASCADE)
-    # comment=models.CharField(max_length=200)
+    reviews=models.CharField(max_length=200)
     rate_by_design=models.PositiveSmallIntegerField(choices=RATE_CHOICES)
     rate_by_usability=models.PositiveSmallIntegerField(choices=RATE_CHOICES)
     rate_by_content=models.PositiveSmallIntegerField(choices=RATE_CHOICES)
     like=models.PositiveIntegerField(default=0)
     unlike=models.PositiveIntegerField(default=0)
     created=models.DateTimeField(auto_now=True)
-    projects=models.ForeignKey(Projects,on_delete=models.CASCADE,null=True, blank=True)
+    projects=models.ForeignKey(Projects,related_name='reviews',on_delete=models.CASCADE,null=True, blank=True)
+    
+    @classmethod
+    def total_rating(cls,self):
+        total_rates = 0
+        total_rates = self.rate_by_design + self.rate_by_usability + self.rate_by_content
+        return total_rates
+
 
     def __str__(self):
         return(self.user.username)
