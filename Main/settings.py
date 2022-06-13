@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'review',
     'bootstrap3',
     'registration',
+    'rest_framework',
     
 ]
 
@@ -85,7 +86,7 @@ WSGI_APPLICATION = 'Main.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'webproject',
+        'NAME': 'webprojects',
         'USER': 'wamaitha',
     'PASSWORD':'web234',
     }
