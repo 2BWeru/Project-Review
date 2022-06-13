@@ -165,6 +165,9 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': "02htpAtgR1oV4FZjMUffxvYiQac",
 }
 
+LOGIN_REDIRECT_URL='landing_page'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
+
 # rating
 # # To prohibit users from altering their ratings set
 # STAR_RATINGS_RERATE = False
