@@ -1,5 +1,3 @@
-from click import style
-from django.contrib import admin
 from django import forms
 from .models import Review,RATE_CHOICES
 
