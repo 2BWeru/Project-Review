@@ -59,7 +59,7 @@ RATE_CHOICES=[
 
 class Review(models.Model):
     user= models.ForeignKey(User,on_delete=models.CASCADE)
-    reviews=models.CharField(max_length=200)
+    reviews = models.CharField(max_length=100)
     rate_by_design=models.PositiveSmallIntegerField(choices=RATE_CHOICES)
     rate_by_usability=models.PositiveSmallIntegerField(choices=RATE_CHOICES)
     rate_by_content=models.PositiveSmallIntegerField(choices=RATE_CHOICES)
