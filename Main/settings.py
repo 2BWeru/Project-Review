@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'review',
-    'bootstrap3',
+    'bootstrap',
     'registration',
     'rest_framework',
     
@@ -158,6 +158,12 @@ TIME_ZONE = 'Africa/Nairobi'
 USE_I18N = True
 
 USE_TZ = True
+
+CLOUDINARY_STORAGE = { 
+    'CLOUD_NAME':"dg1kp8npi" ,
+    'API_KEY': "842657586533351",
+    'API_SECRET': "02htpAtgR1oV4FZjMUffxvYiQac",
+}
 
 # rating
 # # To prohibit users from altering their ratings set
