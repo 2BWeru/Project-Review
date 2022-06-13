@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.urls import re_path as url
+from django.conf.urls import  url
 from  django.conf.urls.static import static
 from django.contrib.auth.views import LogoutView
 from . import views
