@@ -3,8 +3,29 @@ from unittest import loader
 from django.http import  HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
-from .form import Rateform
+from .forms import Rateform
 from review.models import Profile, Projects, Review
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import ProfileSerializer,ProjectsSerializer
+
+
+#API REQUEST
+class MerchList(APIView):
+    def get(self, request, format=None):
+        all_profiles = Profile.objects.all()
+        serializers = ProfileSerializer(all_profiles, many=True)
+        return Response(serializers.data) 
+
+#API REQUEST
+class ProjectsList(APIView):
+    def get(self, request, format=None):
+        all_projects = Projects.objects.all()
+        serializers = ProjectsSerializer(all_projects, many=True)
+        return Response(serializers.data) 
+
+
+
 
 # Create your views here.
 def index(request):
@@ -16,18 +37,23 @@ def index(request):
 def home(request):
 
     return render(request, 'home.html')
+
 # landing page
+@login_required(login_url='/accounts/login/')
 def landing_page(request):
 
     projects=Projects.objects.all()
     profiles=Profile.objects.all()
 
     return render(request, 'home/landing_page.html',{"projects":projects,"profiles":profiles})
+
 # profile
 @login_required(login_url='/accounts/login/')
 def profile(request):
+    user=request.user
     profiles=Profile.objects.all()
-    return render(request, 'profile/profile.html',{'profiles':profiles})
+    project=Projects.objects.all()
+    return render(request, 'profile/profile.html',{'profiles':profiles,"project":project,"user":user})
 
 # edit_profile
 @login_required(login_url='/accounts/login/')
@@ -48,6 +74,7 @@ def editprofile(request):
     return render(request,'profile/edit_profile.html')
 
 # add post
+@login_required(login_url='/accounts/login/')
 def project(request):
     if request.method == 'POST':
         prod = Projects()
@@ -87,37 +114,11 @@ def display_search(request):
     return render(request,'search.html',{"projects":projects})
 
 # rating
-# def rating(request,id):
-#     projects =Projects.objects.get(id=id)
-#     user=request.user
-
-
-#     if request.method == "POST":
-#         form = Rateform(request.POST)
-#         if form.is_valid():
-#             rate=form.save(commit=False)
-#             rate.user=user
-#             rate.project=projects
-#             rate.save()
-
-#         return HttpResponseRedirect(reverse('details', args=[id]))
-#     else:
-#         form=Rateform()
-
-#     template=loader.get_template('home/details.html')
-
-#     context={
-#         'form':form,
-#         'projects':projects,
-#         "template":template
-
-#     }
-        
-#     return render(request,"home/details.html",context)
-
+@login_required(login_url='/accounts/login/')
 def details(request,id):
     projects=Projects.objects.filter(id=id)
-    review=Review.objects.order_by('projects_id')
+    review=Review.objects.filter(id=id)
+    # rating=Review.total_rating(self=id)
     # Re.objects.all().aggregate(Avg('price'))
     user=request.user
 
@@ -154,6 +155,7 @@ def details(request,id):
         'form':form,
         'review':review,
         'projects':projects,
+        # 'rating':rating,
         # "template":template,
 
     }
@@ -165,3 +167,5 @@ def details(request,id):
 @login_required(login_url='/accounts/login/')
 def logout(request):
     return render(request, 'registration/registration_form.html')
+
+
