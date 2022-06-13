@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'review',
-    'bootstrap',
+    'bootstrap3',
     'registration',
     'rest_framework',
     
