@@ -14,6 +14,9 @@ urlpatterns = [
     url(r'^search/',views.search,name = 'search'),
     url(r'^display/',views.display_search,name = 'display_search'),
     url(r'^details/(\d+)',views.details,name = 'details'),
+    url(r'^api/profiles/$', views.MerchList.as_view()),
+    url(r'^api/projects/$', views.ProjectsList.as_view())
+
     # url(r'^details/(\d+)',views.rating,name = 'rate-project'),
 
 
