@@ -33,10 +33,10 @@ def index(request):
     return render(request, 'index.html')
 
 # home
-@login_required(login_url='/accounts/login/')
-def home(request):
+# @login_required(login_url='/accounts/login/')
+# def home(request):
 
-    return render(request, 'home.html')
+#     return render(request, 'home.html')
 
 # landing page
 @login_required(login_url='/accounts/login/')
@@ -128,10 +128,12 @@ def details(request,id):
             rate_by_design=form.save(commit=False)
             rate_by_usability=form.save(commit=False)
             rate_by_content=form.save(commit=False)
+            reviews=form.save(commit=False)
             
             rate_by_design.user=user
             rate_by_usability.user=user
             rate_by_content.user=user
+            reviews.user=user
 
 
             # rate_by_design.projects=projects
@@ -142,6 +144,7 @@ def details(request,id):
             rate_by_design.save()
             rate_by_usability.save()
             rate_by_content.save()
+            reviews.save()
 
 
             
