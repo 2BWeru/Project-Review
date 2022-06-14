@@ -15,9 +15,9 @@
 - Host your Heroku link as your live link on your created Github repository.
 
 ## Screenshot
-https://github.com/2BWeru/Project-Review/blob/master/static/images/Screenshot_2022-06-14_09-57-50.png?raw=true
+https://raw.githubusercontent.com/2BWeru/Project-Review/master/static/images/Screenshot_2022-06-14_03-01-36.png
 
-https://github.com/2BWeru/Project-Review/blob/master/static/images/Screenshot_2022-06-14_09-57-50.png
+https://raw.githubusercontent.com/2BWeru/Project-Review/master/static/images/Screenshot_2022-06-14_09-57-50.png
 
 
 ## Prerequisites
