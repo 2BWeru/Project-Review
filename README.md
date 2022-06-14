@@ -14,10 +14,6 @@
 - When you are done with the project,deploy it to Heroku.
 - Host your Heroku link as your live link on your created Github repository.
 
-## Screenshot
-![image] (https://raw.githubusercontent.com/2BWeru/Project-Review/master/static/images/Screenshot_2022-06-14_03-01-36.png)
-
-![image] (https://raw.githubusercontent.com/2BWeru/Project-Review/master/static/images/Screenshot_2022-06-14_09-57-50.png)
 
 
 ## Prerequisites
