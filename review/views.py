@@ -117,7 +117,7 @@ def display_search(request):
 @login_required(login_url='/accounts/login/')
 def details(request,id):
     projects=Projects.objects.filter(id=id)
-    review=Review.objects.filter(id=id)
+    review=Review.objects.filter()
     # rating=Review.total_rating(self=id)
     # Re.objects.all().aggregate(Avg('price'))
     user=request.user
