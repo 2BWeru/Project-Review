@@ -44,8 +44,8 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto mr-md-3">
-            <li class="nav-item active"><a href="#" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Upload Project</a></li>
+            <li class="nav-item active"><a href="{% url 'landing_page' %}" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="{% url 'project'%}" class="nav-link">Upload Project</a></li>
             <li class="nav-item"><a href="#" class="nav-link">Profile</a></li>
             
           </ul>
@@ -179,7 +179,7 @@
             <div class="content">
               {% for rev in review %}
               <p>
-                <strong>{{user.username}}</strong>
+                <strong>{{rev.user.username}}</strong>
                 <br>
                 <p>{{rev.reviews}}</p>
                 <br>

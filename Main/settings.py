@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'bootstrap3',
     'registration',
     'rest_framework',
+    'cloudinary_storage',
+    'cloudinary',
     
 ]
 

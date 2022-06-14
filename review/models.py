@@ -9,7 +9,7 @@ class Profile(models.Model):
     fullname = models.CharField(null=True,max_length=50)
     user = models.OneToOneField(User, related_name='profile',on_delete=models.CASCADE,null=True, blank=True)
     bio=models.TextField(null=True,max_length=200)
-    avatar = models.ImageField(default='default.jpg', upload_to='profile_images',null=True, blank=True)
+    avatar = models.ImageField(default='default.jpg', upload_to='pics',null=True, blank=True)
     contacts = models.CharField(null=True,max_length=15)
 
     def save_profile(self):
@@ -22,7 +22,7 @@ class Profile(models.Model):
         return(self.fullname)
 
 class Projects(models.Model):
-    landing_page = models.ImageField(default='default.jpg', upload_to='images',null=True, blank=True)
+    landing_page = models.ImageField(default='default.jpg', upload_to='pics',null=True, blank=True)
     description = models.TextField(null=True,max_length=200)
     title = models.CharField(null=True,max_length=200)
     link = models.URLField(null=True,max_length=200)
