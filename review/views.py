@@ -52,7 +52,7 @@ def landing_page(request):
 def profile(request):
     user=request.user
     profiles=Profile.objects.all()
-    project=Projects.objects.all()
+    project=Projects.objects.filter()
     return render(request, 'profile/profile.html',{'profiles':profiles,"project":project,"user":user})
 
 # edit_profile
