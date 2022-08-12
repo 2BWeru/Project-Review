@@ -39,20 +39,21 @@ def index(request):
 #     return render(request, 'home.html')
 
 # landing page
-@login_required(login_url='/accounts/login/')
+# @login_required(login_url='/accounts/login/')
 def landing_page(request):
 
+    user=request.user
     projects=Projects.objects.all()
     profiles=Profile.objects.all()
 
-    return render(request, 'home/landing_page.html',{"projects":projects,"profiles":profiles})
+    return render(request, 'home/landing_page.html',{"user":user,"projects":projects,"profiles":profiles})
 
 # profile
 @login_required(login_url='/accounts/login/')
-def profile(request):
+def profile(request,id):
     user=request.user
-    profiles=Profile.objects.all()
-    project=Projects.objects.filter()
+    profiles=Profile.objects.filter(pk=id)
+    project=Projects.objects.filter(pk=id)
     return render(request, 'profile/profile.html',{'profiles':profiles,"project":project,"user":user})
 
 # edit_profile
@@ -69,12 +70,12 @@ def editprofile(request):
 
         prod.save()
         
-        return redirect('profile')
+        return redirect('profile' )
 
     return render(request,'profile/edit_profile.html')
 
 # add post
-@login_required(login_url='/accounts/login/')
+# @login_required(login_url='/accounts/login/')
 def project(request):
     if request.method == 'POST':
         prod = Projects()
@@ -114,10 +115,10 @@ def display_search(request):
     return render(request,'search.html',{"projects":projects})
 
 # rating
-@login_required(login_url='/accounts/login/')
+# @login_required(login_url='/accounts/login/')
 def details(request,id):
-    projects=Projects.objects.filter(id=id)
-    review=Review.objects.filter(id=id)
+    projects=Projects.objects.filter(pk=id)
+    review=Review.objects.filter(pk=id)
     # rating=Review.total_rating(self=id)
     # Re.objects.all().aggregate(Avg('price'))
     user=request.user
